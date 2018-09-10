@@ -1,4 +1,4 @@
-import numpy as _np
+import random
 
 
 def find_any_peak_1d(a):
@@ -26,6 +26,6 @@ def find_any_peak_2d(a):
         return a[start_row][start_col]
 
 
-matrix = _np.random.randint(10, 100, (5, 5)).tolist()
+matrix = [[random.randint(10, 100) for i in range(5)] for j in range(5)]
 [print(row) for row in matrix]
 print(find_any_peak_2d(matrix))
