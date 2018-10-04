@@ -126,3 +126,28 @@ def radix_sort(a, ascending=True, inplace=True):
                 a[i] = num
                 i += 1
     return a
+
+
+def quick_sort(a, ascending=True, inplace=True):
+    less = []
+    equal = []
+    greater = []
+
+    if len(a) > 1:
+        pivot = a[0]
+        for x in a:
+            if x < pivot:
+                less.append(x)
+            elif x == pivot:
+                equal.append(x)
+            elif x > pivot:
+                greater.append(x)
+        if ascending:
+            result = quick_sort(less, ascending) + equal + quick_sort(greater, ascending)
+        else:
+            result = quick_sort(greater, ascending) + equal + quick_sort(less, ascending)
+        for i in range(len(a)):
+            a[i] = result[i]
+        return result
+    else:
+        return a
